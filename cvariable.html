@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>c language What is a Variable?</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #0073e6;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.5em;
+    }
+
+    .search-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    #search-bar {
+      padding: 8px;
+      width: 70%;
+      max-width: 300px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .sidebar-toggle {
+      font-size: 24px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      width: 160px;
+      background-color: #333;
+      color: white;
+      height: 100vh;
+      position: fixed;
+      top: 60px;
+      left: -160px;
+      transition: left 0.3s ease;
+      overflow-y: auto;
+      z-index: 998;
+    }
+
+    .sidebar.show {
+      left: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 12px 18px;
+      border-bottom: 1px solid #444;
+      color: white;
+      text-decoration: none;
+      font-size: 0.95em;
+    }
+
+    .sidebar a:hover {
+      background-color: #444;
+    }
+
+    /* SCROLLABLE LINKS */
+    .scrollable-links {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background-color: #333;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding-left: 0;
+      z-index: 999;
+    }
+
+    .scrollable-links a {
+      display: inline-block;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 15px;
+    }
+
+    .scrollable-links a:hover {
+      background-color: #0073e6;
+      color: white;
+    }
+
+    /* MAIN CONTENT */
+    .main {
+      padding: 20px;
+      margin-top: 130px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background-color: #0073e6;
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+    
+    pre  {
+      background-color: #ebe9e9;
+      color: #441313;
+      display: block;
+      padding: 15px;
+      overflow-x: auto;
+      border-radius: 5px;
+    }
+
+
+.code{
+    background-color: rgb(172, 169, 166);
+    border-radius: 2px solid;
+    
+    
+}
+    
+
+    /* FOOTER */
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      
+      margin-top: 50px;
+    }
+
+    /* DESKTOP STYLES */
+    @media (min-width: 768px) {
+      .sidebar {
+        left: 0;
+      }
+
+      .sidebar-toggle {
+        display: none;
+      }
+
+      .main {
+        margin-left: 250px;
+      }
+
+      .scrollable-links {
+        padding-left: 160px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="sidebar-toggle" onclick="toggleSidebar()">☰</div>
+    <div class="logo">BCA-HUB</div>
+    
+    </div>
+  </header>
+
+  <!-- SCROLLABLE LINKS -->
+  <div class="scrollable-links">
+    <a href="index.html">home</a>
+    <a href="gst.html">All Calculator</a>
+    <a href="math.html">All sem</a>
+      <a href="paper.html">Quation paper</a>
+    <a href="all.html">C language Quiz</a>
+    <a href="Editor1.html">HTML Editor</a>
+    <a href="ccc.html">C Language</a>
+  </div>
+
+
+   <!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+   <a href="c cons.html">C </a>
+  <br>
+           <a href="csyntx.html">Syntex</a>
+        <a href="cvariable.html">Variable</a>
+        <a href="cscanf.html">scanf</a>
+        <a href="cdata.html">data type</a>
+        <a href="cpointer.html">Pointer</a>
+        <a href="cloop.html">Loop</a>
+        <a href="carray.html">Array</a>
+        <a href="cfunction.html">Function</a>
+        <a href="cstructure.html">Structure</a>
+        <a href="cfilehendling.html">File Handling</a>
+        <a href="cboolean.html">Booleans</a>
+        <a href="cstring.html">String</a>
+
+         <a href="ckeyword.html">Keywords</a>
+        <a href="ckeyword2.html">Keyword</a>
+        <a href="php.html"></a>
+        <a href="python.html"></a>
+        <a href="react.html"></a>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main">
+    <h1>What is a Variable?</h1>
+    <br>
+    <p>A variable is a named storage location in memory where you can store data (like</p>
+    <p>numbers, characters, etc.) temporarily while your program runs.</p>
+    <br>
+    <div class="code">
+        <h2>Example</h2>
+        <pre>
+           int age = 25;
+ 
+        </pre>
+    </div>
+    <br>
+    <li><b>int</b></li>
+    <p>→ data type (integer)</p>
+    <br>
+    <li><b>age</b></li>
+    <p>→name of the variable</p>
+    <br>
+    <li><b>25</b></li>
+    <p>→ value stored in the variable</p>
+    <br>
+    <br>
+    <h1>🔷 Syntax to Declare a Variable</h1>
+    <br>
+    <div class="code">
+<br>
+
+        <h3>🔷< data_type>  < variable_name> =  < value>;
+</h3>
+
+<br>
+    </div>
+<br>
+    <div class="code">
+        <br>
+        <h2>Example</h2>
+        <br>
+        <pre>
+
+            float price = 99.99;
+
+        </pre>
+    </div>
+    <br>
+    <p>This means <b>price</b>  is a variable of type <b>float</b> (decimal), and its value is <b>99.99.</b></p>
+
+<br>
+<br>
+<div class="code">
+    <br>
+    <h2>Types of Variables (Based on Data Types)</h2>
+    <br>
+    <pre>
+| Data Type | Description                  | Example                |
+| --------- | ---------------------------- | ---------------------- |
+| `int`     | Integer (whole number)       | `int age = 21;`        |
+| `float`   | Decimal number               | `float rate = 5.5;`    |
+| `char`    | Single character             | `char grade = 'A';`    |
+| `double`  | Large decimal number         | `double pi = 3.14159;` |
+| `void`    | No value (used in functions) | `void function()`      |
+
+    </pre>
+</div>
+<br>
+<div class="code">
+    <br>
+    <h2>Simple Example Program with Explanation</h2>
+    <br>
+    <pre>
+     #include < stdio.h>
+
+   int main() {
+    int a = 10;              // Line 1: declares variable a and stores 10
+    int b = 20;              // Line 2: declares variable b and stores 20
+    int sum = a + b;         // Line 3: adds a and b, stores result in sum
+    printf("Sum = %d", sum); // Line 4: prints the value of sum using printf
+    return 0;                // Line 5: ends the program
+}
+
+<h3>output</h3>
+
+Sum = 30
+
+
+    </pre>
+</div>
+<br>
+<br>
+<h1>🔷Rules for Naming Variables</h1>
+<br>
+<li>Must start with a letter or an underscore <b>( _ )</b></li>
+<br>
+<li>Can contain letters, digits, and underscores</li>
+<br>
+<li>Cannot use C keywords as variable names (e.g, <b>int</b> , <b>return</b> )</li>
+<br>
+<li>Variable names are case-sensitive ( <b>age</b> and <b>age</b> are different</li>
+<br>
+<br>
+<div class="code">
+<br>
+<h2>Declaring Multiple Variables</h2>
+<br>
+<br>
+<pre>
+    int x = 5, y = 10, z = 15;
+
+</pre>
+
+</div>
+<h2>This creates 3 integer variables and assigns values to them in one line.</h2>
+
+<br>
+<br>
+<div class="code">
+    <pre>
+| Concept        | Example            | Meaning                        |
+| -------------- | ------------------ | ------------------------------ |
+| Declaration    | `int a;`           | Creates a variable named `a`   |
+| Initialization | `int a = 10;`      | Creates `a` and assigns 10     |
+| Updating Value | `a = 20;`          | Changes the value of `a`       |
+| Output         | `printf("%d", a);` | Prints the value stored in `a` |
+
+    </pre>
+</div>
+
+
+   
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 BCA-HUB</p>
+  </footer>
+
+  <!-- JS --
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('show');
+    }
+  </script>-->
+  <script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('show');
+  }
+
+  // Sidebar close on outside touch (for mobile)
+  document.addEventListener('touchstart', function (event) {
+    const sidebar = document.getElementById('sidebar');
+    const toggleBtn = document.querySelector('.sidebar-toggle');
+
+    // agar sidebar open hai aur user ne sidebar aur toggle button ke bahar click kiya
+    if (
+      sidebar.classList.contains('show') &&
+      !sidebar.contains(event.target) &&
+      !toggleBtn.contains(event.target)
+    ) {
+      sidebar.classList.remove('show');
+    }
+  });
+</script>
+
+
+</body>
+</html>

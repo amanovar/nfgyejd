@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>In C programming, keywords</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #0073e6;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.5em;
+    }
+
+    .search-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    #search-bar {
+      padding: 8px;
+      width: 70%;
+      max-width: 300px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .sidebar-toggle {
+      font-size: 24px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      width: 160px;
+      background-color: #333;
+      color: white;
+      height: 100vh;
+      position: fixed;
+      top: 60px;
+      left: -160px;
+      transition: left 0.3s ease;
+      overflow-y: auto;
+      z-index: 998;
+    }
+
+    .sidebar.show {
+      left: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 12px 18px;
+      border-bottom: 1px solid #444;
+      color: white;
+      text-decoration: none;
+      font-size: 0.95em;
+    }
+
+    .sidebar a:hover {
+      background-color: #444;
+    }
+
+    /* SCROLLABLE LINKS */
+    .scrollable-links {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background-color: #333;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding-left: 0;
+      z-index: 999;
+    }
+
+    .scrollable-links a {
+      display: inline-block;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 15px;
+    }
+
+    .scrollable-links a:hover {
+      background-color: #0073e6;
+      color: white;
+    }
+
+    /* MAIN CONTENT */
+    .main {
+      padding: 40px;
+      margin-top: 130px;
+      
+    }
+
+    .cta-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background-color: #0073e6;
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+    
+    pre  {
+      background-color: #ebe9e9;
+      color: #441313;
+      display: block;
+      padding: 15px;
+      overflow-x: auto;
+      border-radius: 5px;
+    }
+
+
+.code{
+    background-color: rgb(172, 169, 166);
+    border-radius: 2px solid;
+    
+    
+}
+    
+.note {
+      background: #fff3cd;
+      padding: 10px;
+      border-left: 5px solid #ffc107;
+      margin: 10px 0;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      
+      margin-top: 50px;
+    }
+
+    /* DESKTOP STYLES */
+    @media (min-width: 768px) {
+      .sidebar {
+        left: 0;
+      }
+
+      .sidebar-toggle {
+        display: none;
+      }
+
+      .main {
+        margin-left: 250px;
+        
+      }
+
+
+      .scrollable-links {
+        padding-left: 160px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="sidebar-toggle" onclick="toggleSidebar()">☰</div>
+    <div class="logo">BCA-HUB</div>
+   
+    </div>
+  </header>
+
+ <!-- SCROLLABLE LINKS -->
+  <div class="scrollable-links">
+    <a href="index.html">home</a>
+    <a href="gst.html">All Calculator</a>
+    <a href="math.html">All sem</a>
+      <a href="paper.html">Quation paper</a>
+    <a href="all.html">C language Quiz</a>
+    <a href="Editor1.html">HTML Editor</a>
+    <a href="ccc.html">C Language</a>
+  </div>
+
+   <!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+   <a href="c cons.html">C </a>
+  <br>
+           <a href="csyntx.html">Syntex</a>
+        <a href="cvariable.html">Variable</a>
+        <a href="cscanf.html">scanf</a>
+        <a href="cdata.html">data type</a>
+        <a href="cpointer.html">Pointer</a>
+        <a href="cloop.html">Loop</a>
+        <a href="carray.html">Array</a>
+        <a href="cfunction.html">Function</a>
+        <a href="cstructure.html">Structure</a>
+        <a href="cfilehendling.html">File Handling</a>
+        <a href="cboolean.html">Booleans</a>
+        <a href="cstring.html">String</a>
+
+         <a href="ckeyword.html">Keywords</a>
+        <a href="ckeyword2.html">Keyword</a>
+        <a href="php.html"></a>
+        <a href="python.html"></a>
+        <a href="react.html"></a>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main">
+
+    <h2>Introduction</h2>
+    <br>
+      <p>
+        In C programming, keywords are reserved words that have special meaning to the compiler. They cannot be used as identifiers (e.g., variable names, function names). Keywords define the structure and behavior of the program. C language supports 32 keywords such as <code>int</code>, <code>for</code>, <code>if</code>, etc.
+      </p>
+    <br>
+    <br>
+ 
+    <br>
+      <h2>Types of Keywords</h2>
+      <br>
+      <p>
+        Keywords in C can be categorized based on their usage:
+      </p>
+      <br>
+      <ul>
+        <li><strong>Data Type Keywords</strong>: Define the type of data a variable can hold. Examples: <code>int</code>, <code>char</code>, <code>float</code>, <code>double</code>.</li>
+        <br>
+        <li><strong>Control Flow Keywords</strong>: Control the flow of execution in a program. Examples: <code>if</code>, <code>else</code>, <code>switch</code>, <code>case</code>, <code>default</code>, <code>break</code>, <code>continue</code>.</li>
+        <br>
+        <li><strong>Looping Keywords</strong>: Used to create loops. Examples: <code>for</code>, <code>while</code>, <code>do</code>.</li>
+        <br>
+        <li><strong>Function Keywords</strong>: Define functions and their return types. Examples: <code>return</code>, <code>void</code>.</li>
+        <br>
+        <li><strong>Storage Class Keywords</strong>: Define the scope and lifetime of variables. Examples: <code>auto</code>, <code>static</code>, <code>extern</code>, <code>register</code>.</li>
+        
+        <br><li><strong>Other Keywords</strong>: Serve various purposes. Examples: <code>sizeof</code>, <code>const</code>, <code>typedef</code>, <code>volatile</code>, <code>goto</code>, <code>enum</code>, <code>struct</code>, <code>union</code>, <code>signed</code>, <code>unsigned</code>.
+      </ul>
+   
+<br>
+    
+      <h2>Examples</h2>
+      <br>
+      <h3>1. Data Type Keywords</h3>
+      <pre><code>
+        #include <stdio.h>
+
+        int main() {
+          int age = 25;
+          char grade = 'A';
+          float height = 5.9;
+          double pi = 3.14159;
+
+          printf("Age: %d\n", age);
+          printf("Grade: %c\n", grade);
+          printf("Height: %.1f\n", height);
+          printf("Pi: %.5f\n", pi);
+
+          return 0;
+        }
+      </code></pre>
+<br>
+<br>
+      <h3>2. Control Flow Keywords</h3>
+      <pre><code>
+        #include <stdio.h>
+
+        int main() {
+          int score = 85;
+
+          if (score >= 90) {
+            printf("Grade: A\n");
+          } else if (score >= 80) {
+            printf("Grade: B\n");
+          } else {
+            printf("Grade: C\n");
+          }
+
+          return 0;
+        }
+      </code></pre>
+<br>
+<br>
+      <h3>3. Looping Keywords</h3>
+      <pre><code>
+        #include <stdio.h>
+
+        int main() {
+          for (int i = 1; i <= 5; i++) {
+            printf("Iteration %d\n", i);
+          }
+
+          return 0;
+        }
+      </code></pre>
+<br>
+<br>
+      <h3>4. Function Keywords</h3>
+      <pre><code>
+        #include <stdio.h>
+
+        void greet() {
+          printf("Hello, World!\n");
+        }
+
+        int main() {
+          greet();
+          return 0;
+        }
+      </code></pre>
+<br>
+<br>
+      <h3>5. Storage Class Keywords</h3>
+      <pre><code>
+        #include <stdio.h>
+
+        void example() {
+          static int count = 0;
+          printf("Count: %d\n", count);
+          count++;
+        }
+
+        int main() {
+          example();
+          example();
+          return 0;
+        }
+      </code></pre>
+    <br>
+    <br>
+
+
+
+   
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 BCA-HUB</p>
+  </footer>
+
+  <!-- JS --
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('show');
+    }
+  </script>-->
+  <script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('show');
+  }
+
+  // Sidebar close on outside touch (for mobile)
+  document.addEventListener('touchstart', function (event) {
+    const sidebar = document.getElementById('sidebar');
+    const toggleBtn = document.querySelector('.sidebar-toggle');
+
+    // agar sidebar open hai aur user ne sidebar aur toggle button ke bahar click kiya
+    if (
+      sidebar.classList.contains('show') &&
+      !sidebar.contains(event.target) &&
+      !toggleBtn.contains(event.target)
+    ) {
+      sidebar.classList.remove('show');
+    }
+  });
+</script>
+
+
+</body>
+</html>

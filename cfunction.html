@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>c language  Function Kya Hai? (What is a Function?)</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #0073e6;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.5em;
+    }
+
+    .search-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    #search-bar {
+      padding: 8px;
+      width: 70%;
+      max-width: 300px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .sidebar-toggle {
+      font-size: 24px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      width: 160px;
+      background-color: #333;
+      color: white;
+      height: 100vh;
+      position: fixed;
+      top: 60px;
+      left: -160px;
+      transition: left 0.3s ease;
+      overflow-y: auto;
+      z-index: 998;
+    }
+
+    .sidebar.show {
+      left: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 12px 18px;
+      border-bottom: 1px solid #444;
+      color: white;
+      text-decoration: none;
+      font-size: 0.95em;
+    }
+
+    .sidebar a:hover {
+      background-color: #444;
+    }
+
+    /* SCROLLABLE LINKS */
+    .scrollable-links {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background-color: #333;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding-left: 0;
+      z-index: 999;
+    }
+
+    .scrollable-links a {
+      display: inline-block;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 15px;
+    }
+
+    .scrollable-links a:hover {
+      background-color: #0073e6;
+      color: white;
+    }
+
+    /* MAIN CONTENT */
+    .main {
+      padding: 20px;
+      margin-top: 130px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background-color: #0073e6;
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+    
+    pre  {
+      background-color: #ebe9e9;
+      color: #441313;
+      display: block;
+      padding: 15px;
+      overflow-x: auto;
+      border-radius: 5px;
+    }
+
+
+.code{
+    background-color: rgb(172, 169, 166);
+    border-radius: 2px solid;
+    
+    
+}
+    .note {
+      background: #fff3cd;
+      padding: 10px;
+      border-left: 5px solid #ffc107;
+      margin: 10px 0;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      
+      margin-top: 50px;
+    }
+
+    /* DESKTOP STYLES */
+    @media (min-width: 768px) {
+      .sidebar {
+        left: 0;
+      }
+
+      .sidebar-toggle {
+        display: none;
+      }
+
+      .main {
+        margin-left: 250px;
+      }
+
+      .scrollable-links {
+        padding-left: 160px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="sidebar-toggle" onclick="toggleSidebar()">☰</div>
+    <div class="logo">BCA-HUB</div>
+    
+    </div>
+  </header>
+
+  <!-- SCROLLABLE LINKS -->
+  <div class="scrollable-links">
+    <a href="index.html">home</a>
+    <a href="gst.html">All Calculator</a>
+    <a href="math.html">All sem</a>
+      <a href="paper.html">Quation paper</a>
+    <a href="all.html">C language Quiz</a>
+    <a href="Editor1.html">HTML Editor</a>
+    <a href="ccc.html">C Language</a>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+   <a href="c cons.html">C </a>
+  <br>
+           <a href="csyntx.html">Syntex</a>
+        <a href="cvariable.html">Variable</a>
+        <a href="cscanf.html">scanf</a>
+        <a href="cdata.html">data type</a>
+        <a href="cpointer.html">Pointer</a>
+        <a href="cloop.html">Loop</a>
+        <a href="carray.html">Array</a>
+        <a href="cfunction.html">Function</a>
+        <a href="cstructure.html">Structure</a>
+        <a href="cfilehendling.html">File Handling</a>
+        <a href="cboolean.html">Booleans</a>
+        <a href="cstring.html">String</a>
+
+         <a href="ckeyword.html">Keywords</a>
+        <a href="ckeyword2.html">Keyword</a>
+        <a href="php.html"></a>
+        <a href="python.html"></a>
+        <a href="react.html"></a>
+  </div>
+
+
+  <!-- MAIN CONTENT -->
+  <div class="main">
+
+    <h2>🔹 Function Kya Hai? (What is a Function?)</h2>
+  <br>
+    <p>
+    Function ek aisa block hota hai jo specific task perform karta hai. Isse code modular, reusable aur manageable ban jata hai.
+    <br>
+    <em>English: A function is a block of code that performs a specific task. Functions help in reusability and code organization.</em>
+  </p>
+<br>
+  <h2>🔧 Function Banane Ka Syntax:</h2>
+  <br>
+  <pre><code>return_type function_name(parameter_list) {
+    // statements
+}</code></pre>
+
+  <p><strong>Example:</strong></p>
+  <pre><code>int add(int a, int b) {
+    return a + b;
+}</code></pre>
+<br>
+<br>
+  <h2>🧪 Function Ko Kaise Call Karte Hain?</h2>
+  <br>
+  <pre><code>int result = add(5, 3);</code></pre>
+
+  <hr/>
+<br>
+  <h2>📌 Example: Function to Add Two Numbers</h2>
+  <pre><code>#include &lt;stdio.h&gt;
+
+int add(int x, int y) {
+    return x + y;
+}
+
+int main() {
+    int result = add(10, 20);
+    printf("Sum: %d\n", result);
+    return 0;
+}</code></pre>
+
+  <h3>🧾 Output:</h3>
+  <pre><code>Sum: 30</code></pre>
+
+  <hr/>
+<br>
+  <h2>📚 Types of Functions in C</h2>
+  <br>
+  <ul>
+    <li><strong>1. Library Functions:</strong> Inbuilt functions jaise <code>printf()</code>, <code>scanf()</code>, <code>sqrt()</code>.</li>
+    <li><strong>2. User-defined Functions:</strong> Jo hum khud banate hain specific task ke liye.</li>
+  </ul>
+<br>
+  <h2>📌 User-defined Functions ke 4 Types:</h2>
+ <br>
+  <ol>
+    <li>Function with no argument and no return value</li>
+    <li>Function with argument but no return value</li>
+    <li>Function with argument and return value</li>
+    <li>Function with no argument but return value</li>
+  </ol>
+<br>
+<br>
+  <h3>🧪 Example: No Argument, No Return Value</h3>
+  <br>
+  <pre><code>void greet() {
+    printf("Hello, World!\n");
+}
+
+int main() {
+    greet();
+    return 0;
+}</code></pre>
+<br>
+  <h3>🧪 Example: With Argument and Return Value</h3>
+  <br>
+  <pre><code>int multiply(int a, int b) {
+    return a * b;
+}
+
+int main() {
+    int result = multiply(4, 5);
+    printf("Result: %d\n", result);
+    return 0;
+}</code></pre>
+
+  <hr/>
+<br>
+<br>
+  <h2>🧠 Function Ke Fayde (Advantages)</h2>
+  <br>
+  <ul>
+    <li>Code reusability</li>
+    <li>Debugging easy hoti hai</li>
+    <li>Modular programming possible hoti hai</li>
+    <li>Maintenance easy ho jata hai</li>
+  </ul>
+
+  <div class="note">
+    💡 Tip: Ek program me jitne jyada functions honge, utna hi structured aur readable banega aapka code.
+  </div>
+
+
+
+
+    <div class="code">
+        
+    </div>
+
+
+
+
+   
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 BCA-HUB</p>
+  </footer>
+
+  <!-- JS --
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('show');
+    }
+  </script>-->
+  <script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('show');
+  }
+
+  // Sidebar close on outside touch (for mobile)
+  document.addEventListener('touchstart', function (event) {
+    const sidebar = document.getElementById('sidebar');
+    const toggleBtn = document.querySelector('.sidebar-toggle');
+
+    // agar sidebar open hai aur user ne sidebar aur toggle button ke bahar click kiya
+    if (
+      sidebar.classList.contains('show') &&
+      !sidebar.contains(event.target) &&
+      !toggleBtn.contains(event.target)
+    ) {
+      sidebar.classList.remove('show');
+    }
+  });
+</script>
+
+
+</body>
+</html>

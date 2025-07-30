@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>c language C Language Keywords With Description and Examples</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #0073e6;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.5em;
+    }
+
+    .sidebar-toggle {
+      font-size: 24px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    /* SCROLLABLE LINKS */
+    .scrollable-links {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background-color: #333;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: 8px 0;
+      z-index: 999;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .scrollable-links a {
+      display: inline-block;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 15px;
+    }
+
+    .scrollable-links a:hover {
+      background-color: #0073e6;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      width: 160px;
+      background-color: #333;
+      color: white;
+      height: 100vh;
+      position: fixed;
+      top: 60px;
+      left: -160px;
+      transition: left 0.3s ease;
+      overflow-y: auto;
+      z-index: 998;
+    }
+
+    .sidebar.show {
+      left: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 12px 18px;
+      border-bottom: 1px solid #444;
+      color: white;
+      text-decoration: none;
+      font-size: 0.95em;
+    }
+
+    .sidebar a:hover {
+      background-color: #444;
+    }
+
+    /* MAIN CONTENT */
+    .main {
+      padding: 10px;
+      margin-top: 130px;
+      font-size: 14px;
+      max-width: 100%;
+      width: 100%;
+    }
+
+    /* TABLE */
+    table {
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    table thead {
+      background-color: #007acc;
+      color: white;
+    }
+
+    table th, table td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    table tbody tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    pre {
+      background-color: #ebe9e9;
+      color: #441313;
+      display: block;
+      padding: 15px;
+      overflow-x: auto;
+      border-radius: 5px;
+    }
+
+    .code {
+      background-color: rgb(172, 169, 166);
+      border-radius: 2px solid;
+    }
+
+    .note {
+      background: #fff3cd;
+      padding: 10px;
+      border-left: 5px solid #ffc107;
+      margin: 10px 0;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 50px;
+    }
+
+    /* DESKTOP STYLES */
+    @media (min-width: 768px) {
+      .sidebar {
+        left: 0;
+      }
+
+      .sidebar-toggle {
+        display: none;
+      }
+
+      .main {
+        margin-left: 160px;
+      }
+
+      .scrollable-links {
+        padding-left: 160px;
+      }
+
+      table {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="sidebar-toggle" onclick="toggleSidebar()">☰</div>
+    <div class="logo">BCA-HUB</div>
+  </header>
+
+  <!-- SCROLLABLE LINKS -->
+  <div class="scrollable-links">
+    <a href="index.html">home</a>
+    <a href="gst.html">All Calculator</a>
+    <a href="math.html">All sem</a>
+      <a href="paper.html">Quation paper</a>
+    <a href="all.html">C language Quiz</a>
+    <a href="Editor1.html">HTML Editor</a>
+    <a href="ccc.html">C Language</a>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+   <a href="c cons.html">C </a>
+  <br>
+           <a href="csyntx.html">Syntex</a>
+        <a href="cvariable.html">Variable</a>
+        <a href="cscanf.html">scanf</a>
+        <a href="cdata.html">data type</a>
+        <a href="cpointer.html">Pointer</a>
+        <a href="cloop.html">Loop</a>
+        <a href="carray.html">Array</a>
+        <a href="cfunction.html">Function</a>
+        <a href="cstructure.html">Structure</a>
+        <a href="cfilehendling.html">File Handling</a>
+        <a href="cboolean.html">Booleans</a>
+        <a href="cstring.html">String</a>
+
+         <a href="ckeyword.html">Keywords</a>
+        <a href="ckeyword2.html">Keyword</a>
+        <a href="php.html"></a>
+        <a href="python.html"></a>
+        <a href="react.html"></a>
+  </div>
+
+
+  <!-- MAIN CONTENT -->
+  <div class="main">
+    <h2>C Language Keywords (With Description and Examples)</h2>
+    <br>
+    <p>C programming language mein total <strong>32 keywords</strong> hote hain...</p>
+    <br>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Keyword</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr><td>auto</td><td>Storage Class</td><td>Local variable (default storage class)</td><td><code>auto int x = 10;</code></td></tr>
+    <tr><td>break</td><td>Control Flow</td><td>Loop ya switch se bahar nikalta hai</td><td><code>break;</code></td></tr>
+    <tr><td>case</td><td>Control Flow</td><td>switch block ke andar case define karta hai</td><td><code>case 1: break;</code></td></tr>
+    <tr><td>char</td><td>Data Type</td><td>Character data type</td><td><code>char ch = 'A';</code></td></tr>
+    <tr><td>const</td><td>Modifier</td><td>Constant value define karta hai</td><td><code>const int max = 100;</code></td></tr>
+    <tr><td>continue</td><td>Control Flow</td><td>Loop ki current iteration skip karta hai</td><td><code>continue;</code></td></tr>
+    <tr><td>default</td><td>Control Flow</td><td>switch ka default case</td><td><code>default: break;</code></td></tr>
+    <tr><td>do</td><td>Loop</td><td>do-while loop start karta hai</td><td><code>do { } while(condition);</code></td></tr>
+    <tr><td>double</td><td>Data Type</td><td>Double-precision floating point</td><td><code>double pi = 3.14159;</code></td></tr>
+    <tr><td>else</td><td>Control Flow</td><td>if ka alternate block</td><td><code>else { }</code></td></tr>
+    <tr><td>enum</td><td>User-defined Type</td><td>Enumeration values define karta hai</td><td><code>enum Day { Mon, Tue };</code></td></tr>
+    <tr><td>extern</td><td>Storage Class</td><td>External variable declaration</td><td><code>extern int a;</code></td></tr>
+    <tr><td>float</td><td>Data Type</td><td>Floating point number</td><td><code>float f = 3.14;</code></td></tr>
+    <tr><td>for</td><td>Loop</td><td>Looping ke liye</td><td><code>for (int i=0; i&lt;5; i++)</code></td></tr>
+    <tr><td>goto</td><td>Control Flow</td><td>Jump to label</td><td><code>goto label;</code></td></tr>
+    <tr><td>if</td><td>Control Flow</td><td>Conditional block</td><td><code>if (a &gt; b) { }</code></td></tr>
+    <tr><td>int</td><td>Data Type</td><td>Integer type</td><td><code>int x = 5;</code></td></tr>
+    <tr><td>long</td><td>Data Type</td><td>Long integer type</td><td><code>long l = 100000;</code></td></tr>
+    <tr><td>register</td><td>Storage Class</td><td>Register storage hint</td><td><code>register int count;</code></td></tr>
+    <tr><td>return</td><td>Statement</td><td>Function se value return karta hai</td><td><code>return 0;</code></td></tr>
+    <tr><td>short</td><td>Data Type</td><td>Short integer type</td><td><code>short s = 10;</code></td></tr>
+    <tr><td>signed</td><td>Modifier</td><td>Signed integer values</td><td><code>signed int x = -5;</code></td></tr>
+    <tr><td>sizeof</td><td>Operator</td><td>Memory size batata hai</td><td><code>sizeof(int);</code></td></tr>
+    <tr><td>static</td><td>Storage Class</td><td>Static variable banata hai</td><td><code>static int count = 0;</code></td></tr>
+    <tr><td>struct</td><td>User-defined Type</td><td>Structure banata hai</td><td><code>struct Person { char name[20]; };</code></td></tr>
+    <tr><td>switch</td><td>Control Flow</td><td>Multi-case branching</td><td><code>switch(x) { case 1: ... }</code></td></tr>
+    <tr><td>typedef</td><td>Type Definition</td><td>New name for data type</td><td><code>typedef unsigned int uint;</code></td></tr>
+    <tr><td>union</td><td>User-defined Type</td><td>Multiple data types in one memory</td><td><code>union Data { int i; float f; };</code></td></tr>
+    <tr><td>unsigned</td><td>Modifier</td><td>Only positive values</td><td><code>unsigned int u = 10;</code></td></tr>
+    <tr><td>void</td><td>Data Type</td><td>No return type (mostly in functions)</td><td><code>void print();</code></td></tr>
+    <tr><td>volatile</td><td>Modifier</td><td>Compiler optimization disable karta hai</td><td><code>volatile int flag;</code></td></tr>
+    <tr><td>while</td><td>Loop</td><td>Condition-based loop</td><td><code>while (i &lt; 10) { i++; }</code></td></tr>
+        <!-- Add more rows as needed -->
+      </tbody>
+    </table>
+
+    <h3>Keyword Categories</h3>
+    <ul>
+      <li><strong>Data Types:</strong> int, char, float, double...</li>
+      <li><strong>Control Flow:</strong> if, else, switch...</li>
+    </ul>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 BCA-HUB</p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('show');
+    }
+
+    // Close sidebar when clicking outside (for mobile)
+    document.addEventListener('touchstart', function (event) {
+      const sidebar = document.getElementById('sidebar');
+      const toggleBtn = document.querySelector('.sidebar-toggle');
+
+      if (
+        sidebar.classList.contains('show') &&
+        !sidebar.contains(event.target) &&
+        !toggleBtn.contains(event.target)
+      ) {
+        sidebar.classList.remove('show');
+      }
+    });
+
+    // Close sidebar on link click (mobile)
+    document.querySelectorAll(".sidebar a").forEach(link => {
+      link.addEventListener("click", () => {
+        if (window.innerWidth < 768) {
+          document.getElementById("sidebar").classList.remove("show");
+        }
+      });
+    });
+  </script>
+</body>
+</html>

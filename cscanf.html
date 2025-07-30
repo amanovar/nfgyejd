@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>c language  What is scanf() in C?</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #0073e6;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.5em;
+    }
+
+    .search-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    #search-bar {
+      padding: 8px;
+      width: 70%;
+      max-width: 300px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .sidebar-toggle {
+      font-size: 24px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      width: 160px;
+      background-color: #333;
+      color: white;
+      height: 100vh;
+      position: fixed;
+      top: 60px;
+      left: -160px;
+      transition: left 0.3s ease;
+      overflow-y: auto;
+      z-index: 998;
+    }
+
+    .sidebar.show {
+      left: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 12px 18px;
+      border-bottom: 1px solid #444;
+      color: white;
+      text-decoration: none;
+      font-size: 0.95em;
+    }
+
+    .sidebar a:hover {
+      background-color: #444;
+    }
+
+    /* SCROLLABLE LINKS */
+    .scrollable-links {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background-color: #333;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding-left: 0;
+      z-index: 999;
+    }
+
+    .scrollable-links a {
+      display: inline-block;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 15px;
+    }
+
+    .scrollable-links a:hover {
+      background-color: #0073e6;
+      color: white;
+    }
+
+    /* MAIN CONTENT */
+    .main {
+      padding: 20px;
+      margin-top: 130px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background-color: #0073e6;
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+    
+    pre  {
+      background-color: #ebe9e9;
+      color: #441313;
+      display: block;
+      padding: 15px;
+      overflow-x: auto;
+      border-radius: 5px;
+    }
+
+
+.code{
+    background-color: rgb(172, 169, 166);
+    border-radius: 2px solid;
+    
+    
+}
+    
+
+    /* FOOTER */
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      
+      margin-top: 50px;
+    }
+
+    /* DESKTOP STYLES */
+    @media (min-width: 768px) {
+      .sidebar {
+        left: 0;
+      }
+
+      .sidebar-toggle {
+        display: none;
+      }
+
+      .main {
+        margin-left: 250px;
+      }
+
+      .scrollable-links {
+        padding-left: 160px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="sidebar-toggle" onclick="toggleSidebar()">☰</div>
+    <div class="logo">BCA-HUB</div>
+    
+    </div>
+  </header>
+
+ <!-- SCROLLABLE LINKS -->
+  <div class="scrollable-links">
+    <a href="index.html">home</a>
+    <a href="gst.html">All Calculator</a>
+    <a href="math.html">All sem</a>
+      <a href="paper.html">Quation paper</a>
+    <a href="all.html">C language Quiz</a>
+    <a href="Editor1.html">HTML Editor</a>
+    <a href="ccc.html">C Language</a>
+  </div>
+
+   <!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+   <a href="c cons.html">C </a>
+  <br>
+           <a href="csyntx.html">Syntex</a>
+        <a href="cvariable.html">Variable</a>
+        <a href="cscanf.html">scanf</a>
+        <a href="cdata.html">data type</a>
+        <a href="cpointer.html">Pointer</a>
+        <a href="cloop.html">Loop</a>
+        <a href="carray.html">Array</a>
+        <a href="cfunction.html">Function</a>
+        <a href="cstructure.html">Structure</a>
+        <a href="cfilehendling.html">File Handling</a>
+        <a href="cboolean.html">Booleans</a>
+        <a href="cstring.html">String</a>
+
+         <a href="ckeyword.html">Keywords</a>
+        <a href="ckeyword2.html">Keyword</a>
+        <a href="php.html"></a>
+        <a href="python.html"></a>
+        <a href="react.html"></a>
+  </div>
+
+
+  <!-- MAIN CONTENT -->
+  <div class="main">
+    <h1>
+        What is scanf() in C?
+    </h1>
+    <br>
+    <p><b>scanf()</b> is an input  function in C used to read data from the user (keyboard) and store it into variables.</p>
+    <br>
+    <p>It is part of the <b>< stdio.h></b> (Standard Input Output) header file.</p>
+    <br>
+    <br>
+    <h2>Syntax of scanf()</h2>
+    <div class="code">
+        <pre>
+            scanf("format_specifier", &variable);
+
+        </pre>
+        
+    </div>
+    <br>
+    <h2>
+        🔹 Explanation:
+    </h2>
+    <br>
+    <li><b>"format_specifier"</b>  Tells the type of data to be read (<b>%d</b>, <b>%f</b>,etc.)</li>
+<br>
+<p>&variable: The address of the variable where the input will be stored (& is the "address-of" operator)</p>
+<br>
+
+<br>
+<h1>Example: Taking Integer Input</h1>
+<br>
+<div class="code">
+<pre>
+#include < stdio.h>
+
+int main() {
+    int age;
+    printf("Enter your age: ");
+    scanf("%d", &age);               // %d for integer, &age gives address
+    printf("You are %d years old.", age);
+    return 0;
+}
+
+
+<h2>Output:</h2>
+
+Enter your age: 18
+You are 18 years old.
+</pre>
+
+</div>
+<br>
+<br>
+
+   
+
+<h1> Format Specifiers for scanf()</h1>
+<br>
+<li>These are used to match the type of input:</li>
+<br>
+<pre>
+
+| Data Type             | Format Specifier | Example Input | Example Code            |
+| --------------------- | ---------------- | ------------- | ----------------------- |
+| `int`                 | `%d`             | `23`          | `scanf("%d", &num);`    |
+| `float`               | `%f`             | `3.14`        | `scanf("%f", &pi);`     |
+| `double`              | `%lf`            | `123.456`     | `scanf("%lf", &x);`     |
+| `char`                | `%c`             | `A`           | `scanf(" %c", &grade);` |
+| `string` (char array) | `%s`             | `hello`       | `scanf("%s", name);`    |
+</pre>
+<p>⚠️ Note: For characters, always use " %c" with a space before %c to avoid newline problems.</p>
+
+<br>
+
+ <h2>Example: Taking Float Input</h2>
+<br>
+<div class="code">
+  <pre>
+ #include < stdio.h>
+
+int main() {
+    float price;
+    printf("Enter the price: ");
+    scanf("%f", &price);
+    printf("Price entered: %.2f", price);  // prints with 2 decimal points
+    return 0;
+}
+</pre>
+</div>
+
+
+<li>Taking Multiple Inputs</li>
+
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 BCA-HUB</p>
+  </footer>
+
+  <!-- JS --
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('show');
+    }
+  </script>-->
+  <script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('show');
+  }
+
+  // Sidebar close on outside touch (for mobile)
+  document.addEventListener('touchstart', function (event) {
+    const sidebar = document.getElementById('sidebar');
+    const toggleBtn = document.querySelector('.sidebar-toggle');
+
+    // agar sidebar open hai aur user ne sidebar aur toggle button ke bahar click kiya
+    if (
+      sidebar.classList.contains('show') &&
+      !sidebar.contains(event.target) &&
+      !toggleBtn.contains(event.target)
+    ) {
+      sidebar.classList.remove('show');
+    }
+  });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="En">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Live Code Editor with Dark Mode</title>
+  <style>
+    :root {
+      --bg: #f9f9f9;
+      --text: #000;
+      --tab-bg: #222;
+      --tab-active: #28a745;
+      --editor-bg: #fff;
+      --button-bg: #28a745;
+      --output-border: #ccc;
+    }
+
+    body.dark {
+      --bg: #121212;
+      --text: #fff;
+      --tab-bg: #1e1e1e;
+      --tab-active: #66bb6a;
+      --editor-bg: #1e1e1e;
+      --button-bg: #66bb6a;
+      --output-border: #333;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .header1 {
+      margin-top: 80px;
+      background: #241313;
+      color: white;
+      position: relative;
+      padding: 10px 10px;
+      display: flex;
+    ;
+      
+     
+    }
+
+    .tabs {
+      display: flex;
+      background: var(--tab-bg);
+    }
+
+    .tab {
+      flex: 1;
+      text-align: center;
+      padding: 12px;
+      cursor: pointer;
+      color: white;
+      border-bottom: 3px solid transparent;
+    }
+
+    .tab.active {
+      background: #444;
+      border-bottom: 3px solid var(--tab-active);
+    }
+
+    .toggle-mode {
+      position: absolute;
+      right: 10px;
+      top: 110px;
+      background: transparent;
+      color: white;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 0px;
+      
+      font-size: 20px;
+    }
+
+    .editor {
+      flex: 1;
+      padding: 10px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 350px;
+      padding: 10px;
+      font-family: monospace;
+      font-size: 14px;
+      background: var(--editor-bg);
+      color: var(--text);
+      border: 1px solid #ccc;
+      resize: vertical;
+    }
+
+    .run-btn {
+      background: var(--button-bg);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px 0;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    iframe {
+      width: 100%;
+      height: 500px;
+      border: 1px solid var(--output-border);
+      margin-top: 10px;
+      background: white;
+    }
+
+.main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 40px;
+      margin-top: 50PX;
+    }
+
+
+    .sidebar-toggle {
+      font-size: 24px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #0073e6;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 2em;
+    }
+
+
+    /* SIDEBAR */
+    .sidebar {
+      width: 160px;
+      background-color: #333;
+      color: white;
+      height: 100vh;
+      position: fixed;
+      top: 60px;
+      left: -160px;
+      overflow-y: auto;
+      transition: left 0.3s ease;
+    text-align: center;
+      z-index: 998;
+    }
+
+    .sidebar.show {
+      left: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 12px 18px;
+      border-bottom: 1px solid #444;
+      color: white;
+      text-decoration: none;
+      font-size: 0.95em;
+    }
+
+    .sidebar a:hover {
+      background-color: #444;
+    }
+
+    /* SCROLLABLE LINKS */
+    .scrollable-links {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background-color: #333;
+      overflow-y: auto;
+      white-space: nowrap;
+      padding-left: 0;
+      z-index: 999;
+    }
+
+    .scrollable-links a {
+      display: inline-block;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 15px;
+    }
+
+    .scrollable-links a:hover {
+      background-color: #0073e6;
+      color: white;
+    }
+
+
+
+
+    @media (max-width: 768px) {
+      textarea { height: 200px; }
+      iframe { height: 450px; }
+    }
+
+    @media (max-width: 480px) {
+      textarea { height: 220px; }
+      iframe { height: 400px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="sidebar-toggle" onclick="toggleSidebar()">☰</div>
+    <div class="logo">BCA-HUB</div>
+      
+  </header>
+
+   <!-- SCROLLABLE LINKS -->
+  <div class="scrollable-links">
+    <a href="index.html">home</a>
+    <a href="gst.html">All Calculator</a>
+    <a href="math.html">All sem</a>
+      <a href="paper.html">Quation paper</a>
+    <a href="all.html">C language Quiz</a>
+    <a href="Editor1.html">HTML Editor</a>
+    <a href="ccc.html">C Language</a>
+  </div>
+  <!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+         <a href="math.html">BCA sem 1</a>
+        <a href="math.html"> BCA sem 1</a>
+        <a href="amth2.html">BCA sem 2</a>
+        <a href="object.html">BCA sem 3</a>
+         <a href="graphic.html">BCA sem 4</a>
+          <a href="dbms.html">BCA sem 5</a>
+        <a href="network.html">BCA sem 6</a>
+        <a href="Editor1.html">HTML EDitor</a>
+        <a href="cquiz.html">C Language quiz</a>
+        <a href="cheat.html">C Language cheat</a>
+        <a href="toggle.html">C Language Sample Answers
+</a>
+         <a href="all.html">All Quiz</a>
+        <a href="gst.html">All Calculator</a>
+        <a href="#"></a>
+         <a href="#"></a>
+          <a href="#"></a>
+           <a href="#"></a>
+   
+    
+  </div>
+
+
+
+
+<hr>
+
+
+<div class="main">
+  <header1>
+    <div class="tabs">
+      <div class="tab active" onclick="switchTab('html')">HTML</div>
+      <div class="tab" onclick="switchTab('css')">CSS</div>
+      <div class="tab" onclick="switchTab('js')">JS</div>
+      <button class="toggle-mode" onclick="toggleMode()">🌙</button>
+    </div>
+  </header1>
+
+  <div class="editor">
+    <!-- HTML Editor -->
+    <div id="htmlTab">
+      <textarea style="height: 250px;" id="html">
+<h1><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+</body>
+</html></h1>
+      </textarea>
+    </div>
+
+    <!-- CSS Editor -->
+    <div id="cssTab" style="display:none;">
+      <textarea style="height: 250px;" id="css">
+body {
+  background: #f0f0f0;
+  font-family: Arial;
+}
+h1 {
+  color: blue;
+  text-align: center;
+}
+      </textarea>
+    </div>
+
+    <!-- JS Editor -->
+    <div id="jsTab" style="display:none;">
+      <textarea style="height: 250px;" id="js">
+console.log("Hello from JavaScript!");
+      </textarea>
+    </div>
+
+    <!-- Run Button -->
+    <button class="run-btn" onclick="runLivePreview()">Run Code</button>
+
+    <!-- Output Area -->
+    <iframe id="output"></iframe>
+  </div>
+
+
+  <br>
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 BCA-HUB</p>
+  </footer>
+
+  <script>
+    function switchTab(tabName) {
+      const tabs = ['html', 'css', 'js'];
+      tabs.forEach(tab => {
+        document.getElementById(tab + 'Tab').style.display = tab === tabName ? 'block' : 'none';
+        document.querySelector(`.tab:nth-child(${tabs.indexOf(tab)+1})`).classList.toggle('active', tab === tabName);
+      });
+    }
+
+    function toggleMode() {
+      document.body.classList.toggle("dark");
+    }
+
+    function runLivePreview() {
+      const html = document.getElementById("html").value;
+      const css = document.getElementById("css").value;
+      const js = document.getElementById("js").value;
+
+      const code = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <style>${css}</style>
+        </head>
+        <body>
+          ${html}
+          <script>${js}<\/script>
+        </body>
+        </html>
+      `;
+
+      document.getElementById("output").srcdoc = code;
+    }
+
+    window.onload = () => {
+      switchTab("html");
+      runLivePreview(); // optional to show first output
+    };
+  </script>
+
+</div>
+
+
+
+ </script>
+
+  <script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('show');
+  }
+
+  // Sidebar close on outside touch (for mobile)
+  document.addEventListener('touchstart', function (event) {
+    const sidebar = document.getElementById('sidebar');
+    const toggleBtn = document.querySelector('.sidebar-toggle');
+
+    // agar sidebar open hai aur user ne sidebar aur toggle button ke bahar click kiya
+    if (
+      sidebar.classList.contains('show') &&
+      !sidebar.contains(event.target) &&
+      !toggleBtn.contains(event.target)
+    ) {
+      sidebar.classList.remove('show');
+    }
+  });
+</script>
+
+
+
+
+
+</body>
+</html>

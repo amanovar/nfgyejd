@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BCAHUB</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #0073e6;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.5em;
+    }
+
+    .search-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    #search-bar {
+      padding: 8px;
+      width: 70%;
+      max-width: 300px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .sidebar-toggle {
+      font-size: 24px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      width: 160px;
+      background-color: #333;
+      color: white;
+      height: 100vh;
+      position: fixed;
+      top: 60px;
+      left: -160px;
+      transition: left 0.3s ease;
+      overflow-y: auto;
+      z-index: 998;
+    }
+
+    .sidebar.show {
+      left: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 12px 18px;
+      border-bottom: 1px solid #444;
+      color: white;
+      text-decoration: none;
+      font-size: 0.95em;
+    }
+
+    .sidebar a:hover {
+      background-color: #444;
+    }
+
+    /* SCROLLABLE LINKS */
+    .scrollable-links {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background-color: #333;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding-left: 0;
+      z-index: 999;
+    }
+
+    .scrollable-links a {
+      display: inline-block;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 15px;
+    }
+
+    .scrollable-links a:hover {
+      background-color: #0073e6;
+      color: white;
+    }
+
+    /* MAIN CONTENT */
+    .main {
+      padding: 20px;
+      margin-top: 130px;
+      
+    }
+
+   .paper{
+             display: grid;
+            gap: 10px;
+            background-color: #eef;
+            padding: 20px;
+            width: 300px;
+            border: 4px solid rgb(222, 211, 211);
+            height: 400px;
+    }
+    .paper a{
+       color: #0055aa;
+            text-decoration: none;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            text-align: center;
+            border-radius: 4px;
+    }
+
+    
+    /* FOOTER */
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      
+      margin-top: 50px;
+    }
+
+    /* DESKTOP STYLES */
+    @media (min-width: 768px) {
+      .sidebar {
+        left: 0;
+      }
+
+      .sidebar-toggle {
+        display: none;
+      }
+
+      .main {
+        margin-left: 250px;
+      }
+
+     .paper {
+        width: 550px; /* Adjust width for larger screens */
+      }
+
+      .scrollable-links {
+        padding-left: 160px;
+      }
+
+     
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="sidebar-toggle" onclick="toggleSidebar()">☰</div>
+    <div class="logo">BCA-HUB</div>
+    
+    </div>
+  </header>
+
+   <!-- SCROLLABLE LINKS -->
+  <div class="scrollable-links">
+    <a href="index.html">home</a>
+    <a href="gst.html">All Calculator</a>
+    <a href="math.html">All sem</a>
+    <a href="paper.html">Quation paper</a>
+    <a href="all.html">C language Quiz</a>
+    <a href="Editor1.html">HTML Editor</a>
+    <a href="ccc.html">C Language</a>
+  
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+   <a href="#">C </a>
+  <br>
+       
+        <a href="seme1.html">SEMESTER-I </a>
+         <a href="seme2.html">SEMESTER-II</a>
+          <a href="seme3.html">SEMESTER-III</a>
+           <a href="seme4.html">SEMESTER-IV</a>
+            <a href="seme5.html">SEMESTER-V</a>
+             <a href="seme6.html">SEMESTER-VI</a>
+        
+   
+    
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main">
+   <h1>B.C.A. Examination,may-2024</h1>
+    <br>
+    <h1>Digital Electronics and Computer Organisation</h1>
+    <br>
+    <br>
+    <h2>II samester</h2>
+    <br>
+    <h2>BCA-204</h2>
+    <br>
+    <hr>
+    <h1>Section-A</h1>
+    <br>
+    <h3>Q1=  NAND gate is known as universal gate Realize the basic gates from this universal gate.</h3>
+    <br>
+    <h3>Q2=  differentiate between synchronous and asynchronous counter.</h3>
+    <br>
+    <h3>Q3=  Describe SR Lath? Draw its logic circuit and its truth table . </h3>
+    <br>
+    <h3>Q4=  Differentiate between static memory, dynamic memory and auxiliary memory.</h3>
+    <br>
+    <h3>Q5=  In computer memory, write down the different unit for memory. a memory can stor 1024 words each having 8 bits. Represent this memory in K (Kilo). </h3>
+    <br>
+    <br>
+    <h1>Section-B</h1>
+    <br>
+    <h3>Q6=  Minimize the following boolean function using K-map: F(A,B,C,D)=∑ (0,3,6,7,9,13,14,15,)</h3>
+    <br>
+    <h3>Q7=  An AND gate has four inputs A,B,c,d and an output Y.</h3>
+    <br>
+    <li>(a) Wrige the boolean expression and sequential diagram</li>
+    <br>
+     <li>(b) When does the above gate will give high output? Drow the truth table.</li>
+     <br>
+      <li>(c) For ȳ write the boolean expression and  sequential diagram.</li>
+    <br>
+      <h3>Q8=  Describe Demultiplexer and design 1:4 demultiplexer ussing gate.</h3>
+              <br>
+              <br>
+              <h1>Section-C</h1>
+              <br>
+              <li>Q9= (a) Draw the logic circuit for the boolean equation y=[ab̄ (C+BD) +āb̄]C.</li>
+              <br>
+              <li> (b) Simpllify the expression and draw logic circuit for the simplified expression. </li>
+              <br>
+              <h3>Q10= draw the circuit of a serial in parallel out shift register. Draw and explain its Working</h3>
+              <br>
+<h3>Q11= Draw the  memory hierarchy in a digital computer: Explain each memory in terms of capacity, size, access time,implementation and managed by whom?</h3>
+<br>
+<h3>Q12= Draw the circuits of full adder and discuss its working. Draw its truth table also.15</h3>
+<br>
+<h3>Q13= A memory has a capacity 32K X 8. find.</h3>
+<br>
+<p>(a) The numbers of words in memory</p>
+<br>
+<p>(b) The numbers of bits in each word.</p>
+<br>
+<p>(c) The total number of bits in the memory.</p>
+<br>
+<p>(d) The totalnumber of memory cells in the memory</p>
+<br>
+<p>(e) data input and data output lines</p>
+    <hr>
+<br>
+<br>
+
+<h1>c programming</h1>
+<br>
+<h1>section-A</h1>
+<br>
+<h3>1= What are header file and their uses?</h3>
+<br>
+<h3>2= What is the different between macro and function?</h3>
+<br>
+<h3>3= What is a Structure? How it is different from union</h3>
+<br>
+<h3>4= What is static memory allocation and dynamic memory allocation</h3>
+<br>
+<h3>5= What is the difference between getc()?, getchar(), getch() and getche()?</h3>
+<br>
+<br>
+<h1>section-b</h1>
+<br>
+<h3>6= write a c program thath reads 20 integer numbers from keywords and sort them in ascending order</h3>
+<br>
+<h3>7= write a c program to check input string is palindrome or not without using any string library function</h3>
+<br>
+<h3>8= Write a c program to add two complex number by passing structure to a function.</h3>
+<br>
+<br>
+<h1>section-c</h1>
+<br>
+<h3>9= What do you mean by pointer? Write c program to access elements in a 2 dimensional array using pointer.</h3>
+<br>
+<h3>10= How string is different an array? Write a c program convert a lower case string to upper case string without using string manipulation function</h3>
+ <br>
+ <h3>11= Write a program in c to count the number of words and characters in an input file test 1.txt.</h3>
+ <br>
+ <h3>12= Write a program in c for the multiplication of two matrices of size 4x4.</h3>
+ <br>
+ <h3>13= Create a structure named 'book' to store book detailes like title, author, and price. Write a c program to input details for three books, find the most expensive and the lowsst pricod books and display their information.</h3>
+
+<br>
+<br>
+<br>
+
+
+
+<div class="paper">
+        <a href="seme1.html">SEMESTER-I </a>
+         <a href="seme2.html">SEMESTER-II</a>
+          <a href="seme3.html">SEMESTER-III</a>
+           <a href="seme4.html">SEMESTER-IV</a>
+            <a href="seme5.html">SEMESTER-V</a>
+             <a href="seme6.html">SEMESTER-VI</a>
+            
+    </div>
+
+<br>
+<br>
+
+    <style>
+      .quastion{
+        
+            display: grid;
+            gap: 10px;
+            background-color: white;
+            padding: 20px;
+            width: 550px;
+            border: 8px;
+            border-radius: 8px;
+    }
+        .quastion :hover {
+      color: #d8d510;
+    }
+
+    .quastion a{
+          color: #457332;
+            text-decoration: none;
+            padding: 5px;
+            background-color: #fff;
+            border: 2px solid #ccc;
+            text-align: center;
+            border-radius: 8px;
+    }
+    
+     .quastion a:hover {
+      color: #d8d510;
+    }
+
+
+    @media (max-width: 768px) {
+      .quastion {
+        width: 100% ;
+        padding: 10px;
+      }
+    }
+    </style>
+
+    <div class="quastion">
+        <h1>Bachelors of Computer Application </h1>
+<br>
+<p>Semester – wise</p>
+
+<p>Course Code Course Name
+</p>
+<br>
+        <h1>SEMESTER-I To VI</h1>
+        <br>
+        <a href="math.html">Semester I</a>
+        <a href="amth2.html">Semester 2</a>
+        <a href="object.html">Semester 3</a>
+        <a href="graphic.html">Semester 4</a>
+        
+        <a href="dbms.html">Semester 5</a>
+        <a href="network.html">Semester 6</a>
+        <br>
+      
+        
+    </div>
+  
+   
+  </div>
+  
+
+</div>
+  
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 BCA-HUB</p>
+  </footer>
+
+  <!-- JS --
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('show');
+    }
+  </script>-->
+  <script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('show');
+  }
+
+  // Sidebar close on outside touch (for mobile)
+  document.addEventListener('touchstart', function (event) {
+    const sidebar = document.getElementById('sidebar');
+    const toggleBtn = document.querySelector('.sidebar-toggle');
+
+    // agar sidebar open hai aur user ne sidebar aur toggle button ke bahar click kiya
+    if (
+      sidebar.classList.contains('show') &&
+      !sidebar.contains(event.target) &&
+      !toggleBtn.contains(event.target)
+    ) {
+      sidebar.classList.remove('show');
+    }
+  });
+</script>
+
+
+</body>
+</html>
